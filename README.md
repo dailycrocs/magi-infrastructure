@@ -44,12 +44,14 @@ Security automation will be added gradually after the core network, servers, mon
 Important security actions will remain under administrator control unless they have been tested and determined to be safe to automate.
 
 ## Physical Hardware
-|    Name     | |        Hardware        |  |  Purpose  |
-|  MELCHIOR   | |    Dell OptiPlex       |  |    TBD    |
-|  BALTHASAR  | |    Dell OptiPlex       |  |    TBD    |
-|  CASPER     | |    Dell OptiPlex       |  |    TBD    |
-|  DOGMA      | |    10ZiG Thin Client   |  |    TBD    |
-|  TBD        | |    Raspberry Pi        |  |    TBD    |
+
+| Name | Hardware | Purpose |
+| --- | --- | --- |
+| MELCHIOR | Dell OptiPlex | TBD |
+| BALTHASAR | Dell OptiPlex | TBD |
+| CASPER | Dell OptiPlex | TBD |
+| DOGMA | 10ZiG Thin Client | TBD |
+| TBD | Raspberry Pi | TBD |
 
 The exact purpose of each computer will be decided after the hardware has been inspected and documented.
 
