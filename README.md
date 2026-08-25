@@ -1,5 +1,10 @@
 # MAGI Infrastructure
-The MAGI Infrastructure is a cybersecurity homelab project designed to provide a secure environment for learning server administration, networking, security monitoring, penetration testing, and automation.
+
+**MAGI — Modular Automated Grid Infrastructure**
+
+MAGI Infrastructure is a cybersecurity homelab project designed to provide a secure environment for learning server administration, networking, security monitoring, penetration testing, and automation.
+
+The name MAGI is inspired by the MAGI supercomputer system from *Neon Genesis Evangelion*. For this project, MAGI also represents **Modular Automated Grid Infrastructure**, reflecting the project's focus on expandable hardware, automation, interconnected systems, and infrastructure services.
 
 The goal of this project is to build a small home network that can be used to learn and practice:
 - Virtualization
