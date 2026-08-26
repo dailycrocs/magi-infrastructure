@@ -14,7 +14,7 @@ The goal of this project is to build a small home network that can be used to le
 - Penetration Testing
 - Server Management
 
-This project will use several physical computers, including three Dell OptiPlex systems, a 10ZiG thing client, and a Raspberry Pi.
+This project will use several physical computers, including three Dell OptiPlex systems, a 10ZiG thin client, and a Raspberry Pi.
 
 As the project is being developed, this repository will document each step, including hardware setup, operating system installation, 
 networking, security tools, testing, troubleshooting, and final results.
