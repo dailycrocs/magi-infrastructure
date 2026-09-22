@@ -2,80 +2,84 @@
 
 **MAGI — Modular Automated Grid Infrastructure**
 
-MAGI Infrastructure is a cybersecurity homelab project designed to provide a secure environment for learning server administration, networking, security monitoring, penetration testing, and automation.
+MAGI Infrastructure is a cybersecurity homelab project designed to provide a
+secure environment for learning server administration, networking, security
+monitoring, penetration testing, virtualization, and automation.
 
-The name MAGI is inspired by the MAGI supercomputer system from *Neon Genesis Evangelion*. For this project, MAGI also represents **Modular Automated Grid Infrastructure**, reflecting the project's focus on expandable hardware, automation, interconnected systems, and infrastructure services.
-
-The goal of this project is to build a small home network that can be used to learn and practice:
-- Virtualization
-- Network Security
-- Network Segmentation
-- Security Monitoring
-- Penetration Testing
-- Server Management
-
-This project will use several physical computers, including three Dell OptiPlex systems, a 10ZiG thin client, and a Raspberry Pi.
-
-As the project is being developed, this repository will document each step, including hardware setup, operating system installation, 
-networking, security tools, testing, troubleshooting, and final results.
+The name MAGI is inspired by the MAGI supercomputer system from *Neon Genesis
+Evangelion*. For this project, MAGI also represents **Modular Automated Grid
+Infrastructure**, reflecting the project's focus on expandable hardware,
+automation, interconnected systems, and infrastructure services.
 
 ## Project Goals
 
-The completed homelab is planned to include:
-- A system for running virtual computers
-- A firewall for controlling network traffic
-- Separate network areas for different types of systems
-- A SIEM for collecting and monitoring security logs
-- A safe environment for penetration testing
-- A Raspberry Pi running Pi-hole for DNS filtering
+MAGI is being developed as a hands-on environment for learning and practicing:
+
+- Virtualization
+- Network security
+- Network segmentation
+- Security monitoring
+- Penetration testing
+- Server administration
+- Infrastructure automation
+
+The completed environment is planned to include a firewall, segmented networks,
+virtualized infrastructure services, centralized security monitoring, an
+isolated penetration-testing environment, DNS filtering, and selected automated
+administrative tasks.
 
 ## Long-Term Goal
 
-The long-term goal of MAGI Infrastructure is to become a largely self-monitoring and automated homelab.
+The long-term goal of MAGI is to become a largely self-monitoring and
+selectively automated homelab.
 
-Instead of requiring constant manual security checks, the environment will eventually be designed to:
+Routine monitoring, health checks, reporting, backups, and other safe
+administrative tasks will gradually be automated after the core network,
+servers, monitoring, and testing environments are working correctly.
 
-- Collect security logs automatically
-- Detect suspicious activity
-- Generate alerts for important security events
-- Notify the administrator when attention is required
-- Monitor the health of servers and services
-- Perform scheduled backups
-- Monitor storage and system resources
-- Automate selected security responses when it is safe to do so
+Important security actions will remain under administrator control unless they
+have been tested and determined to be safe to automate.
 
-Security automation will be added gradually after the core network, servers, monitoring, and penetration-testing environment are working correctly.
+## Hardware
 
-Important security actions will remain under administrator control unless they have been tested and determined to be safe to automate.
+MAGI currently uses three Dell OptiPlex systems, a 10ZiG thin client, and a
+Raspberry Pi.
 
-## Physical Hardware
-
-| Name | Hardware | Purpose |
-| --- | --- | --- |
-| MELCHIOR | Dell OptiPlex | TBD |
-| BALTHASAR | Dell OptiPlex | TBD |
-| CASPER | Dell OptiPlex | TBD |
-| DOGMA | 10ZiG Thin Client | TBD |
-| TBD | Raspberry Pi | TBD |
-
-The exact purpose of each computer will be decided after the hardware has been inspected and documented.
+Detailed hardware information and planned system roles are maintained in the
+[hardware inventory](docs/hardware/inventory.md).
 
 ## Current Status
-**Phase 0: Planning and Hardware Inventory**
 
-The project is currently in the planning state. The next step is to inspect and document the available hardware before installing or removing software.
+**Current milestone: Scope, Research & Architecture**
+
+The project is currently focused on documenting the available hardware,
+defining system roles, establishing the research scope, evaluating major
+technology choices, and designing the initial network architecture.
+
+Project work is tracked through GitHub milestones and issues. Each substantial
+task is developed on its own branch and reviewed before being merged into
+`main`.
+
+## Repository Structure
+
+- `docs/` — Technical documentation for the MAGI environment
+- `scripts/` — Reusable scripts that become part of MAGI
+- `sandbox/` — Small experiments and proof-of-concept work
+- `AGENTS.md` — Instructions for coding and AI agents
+- `AGENT-LOG.md` — Substantial agent-assisted project work and verification
+
+Additional research and paper directories will be added as their corresponding
+project issues are completed.
 
 ## Documentation
 
-Documentation will be added throughout the project and will include:
-- Hardware installation
-- Installation procedures
-- Security configuration
-- Testing
-- Problems encountered
-- Solutions
-- Final results
+Current documentation:
+
+- [Hardware Inventory](docs/hardware/inventory.md)
+
+More technical documentation will be added as the project progresses.
 
 ## Safety
-All penetration testing will be performed inside the private homelab against systems specifically created and authorized for testing.
 
+All penetration testing will be performed inside the private MAGI homelab
+against systems specifically created and authorized for testing.
