@@ -1,77 +1,136 @@
-# MAGI Research Question
+# MAGI Research Question and Project Scope
 
 ## Working Research Question
 
-How can a modular cybersecurity homelab be designed to combine network
-segmentation, virtualization, centralized security monitoring, secure remote
-administration, and selective automation while remaining manageable by a
-single administrator?
+How can a modular cybersecurity homelab be designed and evaluated to combine
+network segmentation, virtualization, centralized security monitoring, secure
+remote administration, isolated security testing, and selective automation
+while remaining manageable by a single administrator?
 
 ## Project Purpose
 
-MAGI Infrastructure is intended to provide a hands-on cybersecurity environment
-for learning and testing server administration, networking, virtualization,
-security monitoring, penetration testing, and infrastructure automation.
+MAGI Infrastructure is a cybersecurity homelab designed to provide a practical
+environment for learning and evaluating server administration, networking,
+virtualization, security monitoring, penetration testing, and infrastructure
+automation.
 
-Rather than building a collection of unrelated systems, MAGI will be designed
-as an interconnected environment in which networking, infrastructure services,
-monitoring, testing, and automation work together.
+Rather than treating these technologies as unrelated systems, MAGI will
+integrate them into a single modular environment in which infrastructure,
+security controls, monitoring, and testing can interact with one another.
+
+The project will focus not only on building the environment, but also on
+documenting the design decisions, testing whether the intended security controls
+work, and evaluating whether the environment can remain practical for one
+administrator to operate.
 
 ## Research Objectives
 
-The project will investigate how a small homelab can:
+The primary objectives of MAGI are to:
 
-1. Separate systems into logical network segments based on purpose and trust.
-2. Host infrastructure and security services through virtualization.
-3. Collect and review security information from multiple systems centrally.
-4. Provide secure remote administration of the environment.
-5. Maintain an isolated environment for controlled penetration testing.
-6. Automate selected monitoring and administrative tasks without removing
-   administrator control from sensitive security decisions.
+1. Design a modular infrastructure that can be expanded as additional systems
+   and services are introduced.
+
+2. Separate systems and services into logical network segments based on their
+   purpose and level of trust.
+
+3. Use virtualization to host infrastructure and security services while
+   maintaining appropriate separation between them.
+
+4. Centralize security monitoring so activity from multiple MAGI systems can be
+   collected, reviewed, and evaluated from one location.
+
+5. Provide secure remote administration of MAGI systems without requiring
+   direct physical access to each machine.
+
+6. Create an isolated environment where authorized penetration-testing activity
+   can be performed without exposing unrelated systems.
+
+7. Automate selected monitoring and administrative tasks where automation can
+   reduce repetitive work without removing necessary administrator control.
+
+8. Document the environment, configuration decisions, tests, and results well
+   enough that the design and evaluation process can be reproduced and reviewed.
+
+## Project Scope
+
+MAGI will focus on a small cybersecurity homelab operated by a single
+administrator.
+
+The project may include:
+
+- Firewall and gateway services
+- Managed switching and network segmentation
+- VLANs and access-control rules
+- Virtualization
+- Infrastructure services
+- DNS filtering
+- Centralized security monitoring and SIEM
+- Secure remote administration
+- An isolated penetration-testing environment
+- Monitoring and administrative scripts
+- Notifications and selected automation
+- Repeatable security and connectivity tests
+
+Specific products, hardware roles, addressing schemes, and implementation
+details will be selected through later project issues.
+
+## Project Boundaries
+
+MAGI is not intended to:
+
+- Reproduce a full enterprise production network.
+- Provide public penetration-testing infrastructure.
+- Test systems that are not owned by or specifically authorized for the MAGI
+  environment.
+- Automate every administrative or security decision.
+- Remove human review from security-sensitive actions.
+- Guarantee protection against every possible attack or failure.
+- Require every available MAGI system or technology to be used if it does not
+  contribute to the research objectives.
+
+All penetration testing and controlled security activity will remain inside the
+authorized MAGI environment.
 
 ## Evaluation Areas
 
-MAGI will be evaluated using repeatable tests in several areas:
+The final MAGI environment will be evaluated at a high level in the following
+areas:
 
 ### Network Segmentation
 
-Verify whether systems in separate MAGI network segments can communicate only
-when permitted by the firewall and network design.
+Verify that intended network segments can communicate where permitted and are
+restricted where communication should not occur.
 
 ### Security Monitoring
 
-Generate controlled events and determine whether the centralized monitoring
-platform receives and identifies the expected activity.
+Generate controlled security-relevant activity and determine whether the
+monitoring environment records and exposes the expected events.
 
 ### Remote Administration
 
-Verify that MAGI can be securely administered remotely without unnecessarily
-exposing management interfaces.
+Verify that authorized systems can be administered remotely through the intended
+management methods while maintaining appropriate access restrictions.
+
+### Security Testing
+
+Perform controlled tests from the isolated penetration-testing environment and
+document the behavior of the relevant security controls and monitoring systems.
 
 ### Automation
 
-Evaluate whether selected repetitive monitoring or administrative tasks can be
-performed automatically while still providing useful information to the
-administrator.
+Evaluate whether selected automated tasks operate consistently and whether they
+reduce repetitive administrative work without taking inappropriate control away
+from the administrator.
 
 ### Reproducibility
 
-Document configurations, tests, and results so that important project behavior
-can be reproduced and explained from the repository.
+Document the architecture, configurations, procedures, and results so that
+important tests and project decisions can be reviewed and repeated.
 
-## Scope
+## Current Status
 
-MAGI focuses on the design and evaluation of a small cybersecurity homelab.
+This document defines the working research question, objectives, scope, and
+boundaries for MAGI Infrastructure.
 
-The project is not intended to reproduce a full enterprise environment or to
-automate every administrative or security decision. Automation will be added
-selectively after the underlying services have been tested and shown to operate
-correctly.
-
-All penetration testing will be performed only against systems created and
-authorized for use inside the private MAGI environment.
-
-## Status
-
-This research question is a working version and may be refined as the
-architecture and implementation develop.
+The specific architecture, hardware roles, products, IP addressing, VLAN design,
+and implementation details will be determined through later project issues.
