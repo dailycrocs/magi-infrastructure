@@ -1,0 +1,86 @@
+%% Benjamin Williams <b.williams@staffs.ac.uk>
+%% Get in touch if you have any questions or problems!
+%% Generic Computer Science Thesis Template
+%% (previously lincolncsthesis)
+%% @version     1.0.8
+%% @lastchanged 04/07/2025
+
+% The document class -- add [harvard] if you want
+% harvard-style referencing. You can also add the option
+% [sfdefault] if you want the font to be sans-serif. You can
+% also add [centerPageNums] to centre footer page numbers.
+\documentclass[]{csthesis}
+
+% Custom packages that you need to include
+\input{preamble/packages.tex}
+
+% Your thesis details -- edit the file at the path below
+% so it shows your name, title, etc.
+\input{preamble/thesis-details.tex}
+
+% Set up the bibliography file used throughout this document
+\input{preamble/bib-setup.tex}
+
+
+\begin{document}
+
+% start of document
+% --------------------------
+
+% Make the title. You can pass an option to this
+% to render the title differently, like so:
+% \maketitle[logo-first]
+\maketitle
+
+% Include pages before the acknowledgements
+% Uncomment if required.
+% \input{chapters/blank-pages.tex}
+
+% Acknowledgements
+\input{chapters/acknowledgements.tex}
+
+% Abstract
+\input{chapters/abstract.tex}
+
+% Print the table of contents, list of tables, and list of figures,
+% then begin the main body of the paper.
+\thesisTables
+
+\thesisBodyStart
+
+
+% start of thesis body
+% ---------------------------
+
+% Introduction
+\chapter{Introduction}
+\input{chapters/introduction.tex}
+
+% Background and related work
+\chapter{Background and Related Work}
+\input{chapters/related-work.tex}
+
+% Method
+\chapter{Method}
+\input{chapters/method.tex}
+
+% Results
+\chapter{Results}
+\input{chapters/results.tex}
+
+% Discussion
+\chapter{Discussion}
+\input{chapters/discussion.tex}
+
+% Conclusion and future work
+\chapter{Conclusion and Future Work}
+\input{chapters/conclusions.tex}
+
+
+% end of thesis body
+% --------------------------
+
+% Print the references
+\printReferences
+
+\end{document}
