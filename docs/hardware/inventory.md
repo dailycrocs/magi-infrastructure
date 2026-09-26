@@ -32,7 +32,7 @@ configuration changes are made.
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage, missing covers, or broken ports observed |
 | Known Limitations / Issues | Small 120 GB system drive; shared pool of two Dell power adapters across three OptiPlex systems |
-| Possible Use | Virtualization or infrastructure server candidate |
+| Possible Use | TBD |
 
 ---
 
@@ -96,7 +96,7 @@ configuration changes are made.
 
 ## DOGMA
 
-**Status:** Physical inspection complete; system inspection pending
+**Status:** Operational; inspection partially complete
 
 | Component | Information |
 | --- | --- |
@@ -106,16 +106,20 @@ configuration changes are made.
 | Processor | TBD |
 | CPU Cores / Threads | TBD |
 | Memory | TBD |
-| Storage | TBD |
+| Storage | BIWIN Industrial mSATA drive; capacity TBD |
 | Ethernet | 1 RJ-45 Ethernet port |
 | USB | 4 rear USB-A + 2 front USB-A |
 | Display Outputs | 2 DisplayPort |
 | Audio | Front headphone and microphone jacks |
 | BIOS Version | TBD |
 | Virtualization Support | TBD |
-| Current Operating System | TBD |
-| Condition | No obvious external damage or broken ports observed |
-| Known Limitations / Issues | System inspection pending due to DisplayPort cable availability |
+| Boot Mode | UEFI |
+| Bootloader | GNU GRUB 2.06-13+pmx2 |
+| UEFI Boot Manager | Accessible |
+| UEFI Setup Utility | Password-protected; credentials unknown |
+| Current Operating System | Proxmox VE |
+| Condition | Powers on and boots successfully into Proxmox VE; no obvious external damage or broken ports observed |
+| Known Limitations / Issues | UEFI Setup Utility is password-protected; credentials unknown |
 | Possible Use | TBD |
 
 ---
