@@ -32,8 +32,7 @@ configuration changes are made.
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage, missing covers, or broken ports observed |
 | Known Limitations / Issues | Small 120 GB system drive; shared pool of two Dell power adapters across three OptiPlex systems |
-| Possible Use | TBD |
-
+| Possible Use | Network security / sensor node |
 ---
 
 ## BALTHASAR
@@ -61,8 +60,7 @@ configuration changes are made.
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage observed |
 | Known Limitations / Issues | BIOS reports time-of-day not set and invalid configuration information; system clock reset to an incorrect date, suggesting the RTC/CMOS battery may need replacement |
-| Possible Use | TBD |
-
+| Possible Use | Primary Proxmox virtualization host |
 ---
 
 ## CASPER
@@ -90,8 +88,7 @@ configuration changes are made.
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage observed |
 | Known Limitations / Issues | None identified during initial inspection |
-| Possible Use | TBD |
-
+| Possible Use | Secondary Proxmox virtualization / security services host |
 ---
 
 ## DOGMA
@@ -120,8 +117,7 @@ configuration changes are made.
 | Current Operating System | Proxmox VE |
 | Condition | Powers on and boots successfully into Proxmox VE; no obvious external damage or broken ports observed |
 | Known Limitations / Issues | UEFI Setup Utility is password-protected; credentials unknown |
-| Possible Use | TBD |
-
+| Possible Use | Dedicated management and monitoring node |
 ---
 
 # Shared Hardware
@@ -141,10 +137,53 @@ One dedicated 10ZiG power adapter is available for DOGMA.
 
 # Planned Hardware
 
-## Raspberry Pi
+## Raspberry Pi 5 Systems
 
 **Status:** Planned / not yet acquired
 
-**Possible Use:** Pi-hole / DNS filtering
+**Quantity:** 2
 
-Final hardware details will be documented after the device is acquired.
+**Preliminary Roles:**
+- ADAM — Primary Pi-hole / DNS
+- LILITH — Secondary Pi-hole / DNS
+
+PoE+ HATs are also being considered so the Raspberry Pi systems can be
+powered through the managed PoE switch.
+
+Final hardware specifications will be documented after the devices are acquired.
+
+## Dedicated Firewall Appliance
+
+**Status:** Planned / not yet acquired
+
+**Possible Use:** Dedicated pfSense or OPNsense firewall/router
+
+The firewall appliance is planned to include multiple physical Ethernet
+interfaces so that WAN and LAN connections can remain physically separated.
+
+Final hardware specifications and firewall platform selection are still TBD.
+
+## Managed PoE Switch
+
+**Status:** Planned / not yet acquired
+
+**Possible Use:** Central managed network switch for MAGI
+
+The switch is planned to support Gigabit Ethernet, 802.1Q VLANs, trunking,
+port-based VLAN assignment, PoE/PoE+, network monitoring, and future
+infrastructure expansion.
+
+A specific switch model has not yet been selected.
+
+## GEHIRN
+
+**Status:** Planned / future expansion
+
+**Hardware:** GPU workstation using a repurposed NVIDIA RTX 3080 Ti
+
+**Possible Use:** Local AI and security operations node
+
+GEHIRN is planned to provide local AI services for tasks such as security
+alert analysis, log analysis, reporting, and administrative assistance.
+
+Final system specifications will be documented when the workstation is built.
