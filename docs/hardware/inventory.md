@@ -31,8 +31,19 @@ configuration changes are made.
 | Current Operating System | Proxmox VE |
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage, missing covers, or broken ports observed |
-| Known Limitations / Issues | Small 120 GB system drive; shared pool of two Dell power adapters across three OptiPlex systems |
-| Possible Use | Network security / sensor node |
+| Known Limitations / Issues | Small 120 GB system drive; only one onboard Ethernet interface; shared pool of two Dell power adapters across three OptiPlex systems |
+| Preliminary Role | MAGI firewall / router |
+
+MELCHIOR is planned to provide the firewall and routing functions for MAGI.
+
+Because the system has only one onboard Ethernet interface, the preliminary
+firewall design will require VLAN trunking and a router-on-a-stick style
+configuration through the managed switch rather than separate physical WAN
+and LAN interfaces.
+
+The final firewall platform will be either pfSense or OPNsense and will be
+selected before implementation.
+
 ---
 
 ## BALTHASAR
@@ -60,7 +71,14 @@ configuration changes are made.
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage observed |
 | Known Limitations / Issues | BIOS reports time-of-day not set and invalid configuration information; system clock reset to an incorrect date, suggesting the RTC/CMOS battery may need replacement |
-| Possible Use | Primary Proxmox virtualization host |
+| Preliminary Role | Primary Proxmox virtualization host |
+
+BALTHASAR is planned as the primary Proxmox virtualization host for MAGI.
+
+The system will provide capacity for infrastructure virtual machines and
+services. The BIOS/RTC issue should be addressed before the system is placed
+into regular service.
+
 ---
 
 ## CASPER
@@ -88,7 +106,14 @@ configuration changes are made.
 | Current OS Access | Pre-existing installation; credentials unknown |
 | Condition | Powers on and boots successfully; no visible damage observed |
 | Known Limitations / Issues | None identified during initial inspection |
-| Possible Use | Secondary Proxmox virtualization / security services host |
+| Preliminary Role | Secondary Proxmox virtualization / security-services host |
+
+CASPER is planned to provide additional virtualization capacity and host
+security-related or infrastructure services.
+
+Its exact virtual-machine and service assignments will be determined during
+the infrastructure and monitoring design phases.
+
 ---
 
 ## DOGMA
@@ -117,63 +142,170 @@ configuration changes are made.
 | Current Operating System | Proxmox VE |
 | Condition | Powers on and boots successfully into Proxmox VE; no obvious external damage or broken ports observed |
 | Known Limitations / Issues | UEFI Setup Utility is password-protected; credentials unknown |
-| Possible Use | Dedicated management and monitoring node |
+| Preliminary Role | Dedicated management and monitoring node |
+
+DOGMA is planned for lightweight administrative and monitoring functions.
+
+Possible responsibilities include secure remote administration, dashboards,
+SNMP monitoring, health checks, and small administrative or automation
+scripts.
+
+---
+
+# Raspberry Pi Systems
+
+## ADAM
+
+**Status:** Acquired
+
+| Component | Information |
+| --- | --- |
+| Model | Raspberry Pi 5 |
+| Memory | 16 GB |
+| Ethernet | 1 Gigabit Ethernet port |
+| Cooling | Raspberry Pi Active Cooler |
+| Current Storage | TBD |
+| Planned Power Method | PoE+ through managed PoE switch |
+| Preliminary Role | Primary Pi-hole / DNS node |
+
+ADAM is planned as the primary Pi-hole and DNS system for MAGI.
+
+A combined PoE+ / NVMe HAT is planned so that the system can receive power
+through Ethernet while retaining the option to use NVMe storage later.
+
+ADAM can initially operate using microSD storage without an NVMe drive.
+
+---
+
+## LILITH
+
+**Status:** Acquired
+
+| Component | Information |
+| --- | --- |
+| Model | Raspberry Pi 5 |
+| Memory | 16 GB |
+| Ethernet | 1 Gigabit Ethernet port |
+| Cooling | Raspberry Pi Active Cooler |
+| Current Storage | TBD |
+| Planned Power Method | PoE+ through managed PoE switch |
+| Preliminary Role | Secondary Pi-hole / DNS node |
+
+LILITH is planned as the secondary Pi-hole and DNS system for MAGI.
+
+The secondary system is intended to maintain DNS availability if ADAM is
+offline for maintenance or otherwise unavailable.
+
+A combined PoE+ / NVMe HAT is planned so that LILITH can also receive power
+through Ethernet and support future NVMe storage.
+
+---
+
+# Network Hardware
+
+## TP-Link Omada SG2210P
+
+**Status:** Acquired
+
+| Component | Information |
+| --- | --- |
+| Manufacturer | TP-Link |
+| Product Family | Omada |
+| Model | SG2210P |
+| Type | 10-Port Gigabit PoE+ Managed Switch |
+| Managed | Yes |
+| PoE | PoE+ |
+| Preliminary Role | Central managed network switch for MAGI |
+
+The SG2210P will serve as the central physical network connection point for
+MAGI.
+
+The switch will support VLAN-based segmentation, trunking, port-based VLAN
+assignment, network monitoring, and PoE+ power for compatible devices such as
+ADAM and LILITH.
+
+Detailed VLAN and port configuration will be defined as part of the MAGI
+network design.
+
+---
+
+# Rack Hardware
+
+## DeskPi RackMate T1
+
+**Status:** Acquired
+
+| Component | Information |
+| --- | --- |
+| Manufacturer | DeskPi |
+| Product | RackMate T1 |
+| Rack Width | 10-inch |
+| Rack Capacity | 8U |
+| Preliminary Use | Physical mounting and organization of MAGI infrastructure |
+
+The RackMate T1 will provide the primary physical enclosure for the MAGI
+systems and networking equipment.
+
+Final rack placement, shelves, patch-panel equipment, and cable-management
+accessories will be documented as the physical installation is completed.
+
 ---
 
 # Shared Hardware
 
 ## Dell Power Adapters
 
-Two Dell power adapters are currently available for the three OptiPlex systems.
+Two Dell power adapters are currently available for the three OptiPlex
+systems.
 
-This means all three OptiPlex systems cannot be powered independently at the
-same time without obtaining another compatible adapter.
+This means all three OptiPlex systems cannot currently be powered
+independently at the same time.
+
+One additional compatible Dell power adapter is planned.
 
 ## 10ZiG Power Adapter
 
 One dedicated 10ZiG power adapter is available for DOGMA.
 
+## Raspberry Pi Accessories
+
+The following Raspberry Pi accessories are currently available:
+
+- 2 × Raspberry Pi Active Cooler
+- 2 × Raspberry Pi M.2 HAT+
+
+The separate M.2 HAT+ boards are not currently planned for the final ADAM
+and LILITH configuration because combined PoE+ / NVMe HATs are planned
+instead.
+
+The M.2 HAT+ boards will be retained as spare hardware or may be used for
+future Raspberry Pi expansion.
+
 ---
 
 # Planned Hardware
 
-## Raspberry Pi 5 Systems
+## Combined Raspberry Pi PoE+ / NVMe HATs
 
 **Status:** Planned / not yet acquired
 
 **Quantity:** 2
 
-**Preliminary Roles:**
-- ADAM — Primary Pi-hole / DNS
-- LILITH — Secondary Pi-hole / DNS
+**Planned Use:** PoE+ power and optional future NVMe storage for ADAM and
+LILITH.
 
-PoE+ HATs are also being considered so the Raspberry Pi systems can be
-powered through the managed PoE switch.
+The HATs will allow both Raspberry Pi systems to receive network connectivity
+and electrical power through the managed PoE+ switch.
 
-Final hardware specifications will be documented after the devices are acquired.
+NVMe drives are not currently required and may be added later.
 
-## Dedicated Firewall Appliance
-
-**Status:** Planned / not yet acquired
-
-**Possible Use:** Dedicated pfSense or OPNsense firewall/router
-
-The firewall appliance is planned to include multiple physical Ethernet
-interfaces so that WAN and LAN connections can remain physically separated.
-
-Final hardware specifications and firewall platform selection are still TBD.
-
-## Managed PoE Switch
+## Additional Dell Power Adapter
 
 **Status:** Planned / not yet acquired
 
-**Possible Use:** Central managed network switch for MAGI
+**Quantity:** 1
 
-The switch is planned to support Gigabit Ethernet, 802.1Q VLANs, trunking,
-port-based VLAN assignment, PoE/PoE+, network monitoring, and future
-infrastructure expansion.
-
-A specific switch model has not yet been selected.
+**Planned Use:** Allow all three OptiPlex systems to operate simultaneously.
 
 ## GEHIRN
 
