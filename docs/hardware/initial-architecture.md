@@ -4,8 +4,11 @@ This document represents the current high-level architecture for the MAGI
 Infrastructure project.
 
 It shows the planned physical and logical relationships between the major MAGI
-systems before detailed VLAN IDs, IP addressing, firewall rules, and trust
-boundaries are finalized.
+systems.
+
+Preliminary VLAN IDs, IP addressing, switch-port assignments, and inter-VLAN
+trust rules are defined in
+[`docs/network/ip-vlan-plan.md`](../network/ip-vlan-plan.md).
 
 ## Physical Architecture
 
@@ -65,9 +68,9 @@ and the internal MAGI VLANs.
 Traffic moving between the WAN-side network and internal MAGI networks must be
 processed by MELCHIOR's firewall and routing functions.
 
-The exact VLAN IDs, private IPv4 subnets, and interface assignments are
-intentionally not defined in this document. Those values will be developed
-during the preliminary IP and VLAN design.
+The preliminary VLAN IDs, private IPv4 subnets, and interface assignments,
+including the dedicated WAN VLAN used between the ISP gateway and MELCHIOR,
+are defined in the [MAGI Preliminary IP and VLAN Plan](../network/ip-vlan-plan.md).
 
 ## Central Switching
 
@@ -259,7 +262,9 @@ require administrator approval.
 - Security-testing systems will be isolated from unrelated infrastructure.
 - Remote administration will use a secure method such as VPN access rather
   than directly exposing management interfaces.
-- Detailed VLAN IDs, private IPv4 subnets, gateway addresses, switch-port
-  assignments, firewall rules, and trust boundaries will be defined during the
-  preliminary IP and VLAN design.
+- Preliminary VLAN IDs, private IPv4 subnets, gateway addresses, switch-port
+  assignments, and default trust boundaries are defined in
+  [`docs/network/ip-vlan-plan.md`](../network/ip-vlan-plan.md). Detailed
+  platform-specific firewall rules will be written after the firewall platform
+  is selected.
   
